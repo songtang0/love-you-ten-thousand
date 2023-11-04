@@ -23,7 +23,7 @@ Gitee：https://gitee.com/nianbroken/Firework_Simulator
 // This is a prime example of what starts out as a simple project
 // and snowballs way beyond its intended size. It's a little clunky
 // reading/working on this single file, but here it is anyways :)
-
+	console.log('社保--', window.innerHeight, window.innerWidth)
 	const IS_MOBILE = window.innerWidth <= 640;
 	const IS_DESKTOP = window.innerWidth > 800;
 	const IS_HEADER = IS_DESKTOP && window.innerHeight < 300;
@@ -94,7 +94,7 @@ Gitee：https://gitee.com/nianbroken/Firework_Simulator
 		// }, 5000); // 5000
 		function addSayWord() {
 			setInterval( ()=> {
-				fireworks.push(new Firework(width / 2, height, 0, -12, 3, "gold", true));
+				fireworks.push(new Firework(width / 2, height, 0, -10, 3, "gold", true));
 			}, 5000); // 5000
 		}
 		initAddSayWord.value = addSayWord;
