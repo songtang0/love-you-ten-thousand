@@ -10,6 +10,7 @@
 <!--      </Typed>-->
 <!--    </div>-->
     <div class="content"></div>
+    <div class="letter-author"></div>
   </div>
 </template>
 
@@ -41,16 +42,23 @@ watch(() => props.visible, (value) => {
     startDelay: 1500,
     showCursor: false
   });
-  const contentType = new Typed('.content', {
-    strings: [`&nbsp;&nbsp;&nbsp;&nbsp;见字如晤！一日不见，如三秋兮。今夕何夕,见此良人。岁月如梭，念已周年。吾之所愿，喜乐连绵。礼赠余爱，纪以永年！`],
+  new Typed('.content', {
+    // strings: [`&nbsp;&nbsp;&nbsp;&nbsp;见字如晤！一日不见，如三秋兮。今夕何夕,见此良人。岁月如梭，念已周年。吾之所愿，喜乐连绵。礼赠余爱，纪以永年！`],
+    strings: [`&nbsp;&nbsp;&nbsp;&nbsp;见字如晤！一日不见，如三秋兮。嗟我怀人，寘彼周行。今夕何夕,见此良人。吾之所愿，喜乐连绵。礼赠余爱，纪以永年！`],
     typeSpeed: 200,
     startDelay: 3100,
+    showCursor: false,
+  });
+  new Typed('.letter-author', {
+    strings: ['-- 来自至高无上的男朋友大人。'],
+    typeSpeed: 200,
+    startDelay: 18500,
     showCursor: false,
     onComplete: (self) => {
       console.log('完成了，哈哈', self)
       emit('onCompleteType');
     }
-  });
+  })
   // contentType.onComplete
   console.log('显示---', typed);
   // optionsHeader.value.strings.push("亲爱的张乐明女士：")
@@ -67,10 +75,16 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .introduce-container {
-  padding: px2rem(10px) px2rem(6px);
+  padding: px2rem(6px) px2rem(6px);
   font-size: px2rem(16px);
+  #sayHeader {
+    margin-top: 6px;
+  }
   .content {
-
+    //margin-top: 6px;
+  }
+  .letter-author {
+    margin-left: px2rem(100px);
   }
 }
 </style>

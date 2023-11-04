@@ -27,7 +27,7 @@
             <canvas id="main-canvas">
             </canvas>
           </div>
-          <div class="controls">
+          <div class="controls" v-show="false">
             <div class="btn pause-btn">
               <svg fill="white" width="24" height="24">
                 <use href="#icon-pause" xlink:href="#icon-pause">
@@ -191,15 +191,13 @@ const openEnvelop = () => {
   }, 1000)
 }
 const onCompleteType = () => {
-  showEnvelope.value = false;
-  initFire.value();
-  initAddSayWord.value();
-  initLoop.value();
-
-  // clearTimeout(letterTimer.value);
-  // letterTimer.value = setTimeout(() => {
-  //
-  // }, 1500);
+  clearTimeout(letterTimer.value);
+  letterTimer.value = setTimeout(() => {
+    showEnvelope.value = false;
+    initFire.value();
+    initAddSayWord.value();
+    initLoop.value();
+  }, 2000);
 
 
   // clearTimeout(wordFireTimer.value);

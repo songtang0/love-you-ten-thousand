@@ -65,6 +65,57 @@ Gitee：https://gitee.com/nianbroken/Firework_Simulator
 			'一周年啦！',
 			'时间过的',
 			'真的很快',
+			'有好多话',
+			'想跟你说',
+			'准备好了',
+			'吗？',
+			'要开始了',
+			// '10',
+			// '9',
+			// '8',
+			// '7',
+			// '6',
+			// '5',
+			// '4',
+			'3',
+			'2',
+			'1',
+			'等一下',
+			'改个代码',
+			'哈哈',
+			'准备好了',
+			'吗亲爱的',
+			'这次真的',
+			'要开始了',
+			'3',
+			'2',
+			'1',
+			'等一下',
+			'先欠着',
+			'嘻嘻',
+			'不过还是', // 今晚的
+			'有一句话', // 烟花
+			'想告诉你', // 只为你而
+			'那就是', // 绽放
+			'今晚的',
+			'烟花',
+			'只为你而',
+			'绽放',
+			// '希望你能',
+			// '特别喜欢',
+			'希望这是',
+			'让你喜欢',
+			'难以忘记',
+			'的一周年',
+			'礼物',
+			"张",
+			'乐',
+			'明',
+			"I",
+			"❤",
+			"U",
+			// "three",
+			// "thousand"
 		]
 		const textSizeList = {
 			0: 40,
@@ -81,20 +132,29 @@ Gitee：https://gitee.com/nianbroken/Firework_Simulator
 			// textToPoints("一周年啦！", 17, "Lilita One"),
 			// textToPoints("时间过的", 17, "Lilita One"),
 			// textToPoints("真的很快", 17, "Anton"),
-			textToPoints("张", 40, "Anton"),
-			textToPoints("乐", 40, "Anton"),
-			textToPoints("明", 40, "Anton"),
-			textToPoints("I", 40, "Anton"),
-			textToPoints("❤", 40, "Anton"),
-			textToPoints("U", 40, "Anton"),
+			// textToPoints("张", 40, "Anton"),
+			// textToPoints("乐", 40, "Anton"),
+			// textToPoints("明", 40, "Anton"),
+			// textToPoints("I", 40, "Anton"),
+			// textToPoints("❤", 40, "Anton"),
+			// textToPoints("U", 40, "Anton"),
+			textToPoints("three", 25, "Anton"),
+			textToPoints("thousand", 20, "Anton"),
+			textToPoints("完结撒花", 17, "Anton"),
 		]
+		console.log('pointList', pointList.length);
 		// fireworks.push(new Firework(width / 2, height, 0, -12, 10, "gold", true));
 		// setInterval( ()=> {
 		// 	fireworks.push(new Firework(width / 2, height, 0, -12, 3, "gold", true));
 		// }, 5000); // 5000
 		function addSayWord() {
-			setInterval( ()=> {
+			let index = 0;
+			let addFireWordTimer = null;
+			clearInterval(addFireWordTimer);
+			addFireWordTimer = setInterval( ()=> {
 				fireworks.push(new Firework(width / 2, height, 0, -10, 3, "gold", true));
+				index++;
+				if (index === pointList.length) clearInterval(addFireWordTimer);
 			}, 5000); // 5000
 		}
 		initAddSayWord.value = addSayWord;
@@ -246,6 +306,10 @@ Gitee：https://gitee.com/nianbroken/Firework_Simulator
 		}
 		function textToPoints(text, textSize, font) {
 			const textLen = text.length;
+			const enWord = new Map([
+				['three', 30],
+				['thousand', 30],
+			]);
 			const startFrom = [0, 40, 35, 30, 25, 20]
 			var canvas = document.createElement("canvas");
 			const {width} = window.screen;
@@ -258,7 +322,7 @@ Gitee：https://gitee.com/nianbroken/Firework_Simulator
 			ctx.textBaseline = "middle";
 			ctx.font = textSize + "px " + font;
 			// ctx.fillText(text, 40, canvas.height / 2);
-			ctx.fillText(text, startFrom[textLen], canvas.height / 2);
+			ctx.fillText(text, enWord.has(text) ? enWord.get(text) : startFrom[textLen], canvas.height / 2);
 			// ctx.fillStyle = 'border: 2px solid red'
 			// ctx.lineWidth = 5;//设置边框大写
 			// ctx.fillStyle = "yellow";//填充实体颜色
