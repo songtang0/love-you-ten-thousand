@@ -6,7 +6,8 @@
         <div class="envelop" :class="{'open': openedEnvelope}">
           <div class="top">
             <div class="invitation">
-              张乐明
+<!--              张乐明-->
+              zhangleming
             </div>
           </div>
           <div class="front"></div>
