@@ -147,8 +147,8 @@
         </div>
       </div>
     </div>
-    <audio ref="clickMusic" src="/static/audio/click.mp3" class="clickMusic"></audio>
-    <audio ref="bgMusic" src="/static/audio/交换余生.mp3" class="bgMusic"></audio>
+    <audio ref="clickMusic" src="/love/static/audio/click.mp3" class="clickMusic"></audio>
+    <audio ref="bgMusic" src="/love/static/audio/交换余生.mp3" class="bgMusic"></audio>
   </div>
 
 </template>
